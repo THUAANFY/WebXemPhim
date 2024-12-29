@@ -1,0 +1,82 @@
+@charset "UTF-8";
+img{
+    width: 60px;
+}
+i{
+    font-size: 20px;
+}
+ion-icon{
+    font-size: 25px;
+}
+.my-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+
+/* Giới hạn tiêu đề hiên thị 2 dòng ở phần Sidebar Section trong trang chitietVideo*/
+.text-truncate-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limit to 2 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* CSS cho button Đăng Nhập trong trang dangnhap.html*/
+.dangnhap {
+    display: block;
+    width: 50%;
+    font-weight: bold;
+    background: linear-gradient(45deg, rgb(16, 137, 211) 0%, rgb(18, 177, 209) 100%);
+    color: white;
+    padding-block: 15px;
+    margin: 20px auto;
+    border-radius: 20px;
+    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 20px 10px -15px;
+    border: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.dangnhap:hover {
+    transform: scale(1.03);
+    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 23px 10px -20px;
+}
+
+.dangnhap:active {
+    transform: scale(0.95);
+    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 15px 10px -10px;
+}
+
+
+/* CSS cho phần Video Edition trong admin-user.html */
+.poster-container {
+    position: relative;
+    width: 100%;
+    /* max-height: 500px; */
+    border: 1px solid #e38e3b;
+    overflow: hidden;
+    object-fit: contain;
+}
+.form-control{
+    border: 1px solid #e38e3b;
+}
+.poster {
+    width: 100%;
+    /* height: 100%; */
+    object-fit: cover;
+}
+.poster-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+.input-box {
+    border: 1px solid #e38e3b;
+    padding: 5px;
+}
