@@ -23,14 +23,14 @@
 <body>
 	<!-- CONTAINER -->
     <div class="container p-3">
-        <h2 class="text-center fw-bold">ĐĂNG NHẬP TÀI KHOẢN</h2>
+        <h2 class="text-center fw-bold" id="welcome">ĐĂNG NHẬP TÀI KHOẢN</h2>
         <a href="/ASSIGNMENT/index">
             <button class="btn btn-outline-warning text-dark mb-4 ms-3">Quay lại trang chủ</button>
         </a>
         <form action="dangnhap" method="post">
 	        <!-- Hiển thị thông báo lỗi nếu có -->
 		    <c:if test="${not empty error}">
-		        <p style="color: red;">${error}</p>
+		        <p id="error" style="color: red;">${error}</p>
 		    </c:if>
 	    
             <div class="mb-3">
@@ -41,7 +41,7 @@
                     name="idOrEmail"
                     id="idOrEmail"
                     placeholder="Nhập ID hoặc Email"
-                    required
+                    
                 />
             </div>
 
@@ -53,7 +53,7 @@
                     name="password"
                     id="password"
                     placeholder="Nhập Password"
-                    required
+                    
                 />
             </div>
 
@@ -62,7 +62,7 @@
                 <label class="form-check-label" for=""> Ghi nhớ tài khoản?</label>
             </div> -->
             
-            <button class="dangnhap" type="submit">Đăng Nhập</button>
+            <button class="dangnhap" type="submit" id="submit">Đăng Nhập</button>
         </form>
     </div>
     

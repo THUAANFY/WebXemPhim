@@ -58,7 +58,7 @@
 				        <c:when test="${not empty sessionScope.userlogin}">
 				            <!-- Show user's name on the right side -->
 				            <li class="nav-item">
-				                <p class="nav-link alert alert-warning mb-0 p-2">Xin chào, ${sessionScope.userlogin.fullname} !</p>
+				                <p class="nav-link alert alert-warning mb-0 p-2" id="welcome">Xin chào, ${sessionScope.userlogin.fullname} !</p>
 				            </li>
 				        </c:when>
 				    </c:choose>
@@ -151,9 +151,9 @@
             <blockquote class="blockquote">
                 <p class="text-success display-5">Our Videos</p>
             </blockquote>
-            <figcaption class="blockquote-footer">
+            <!-- <figcaption class="blockquote-footer">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus in quia libero suscipit aliquam aspernatur.
-            </figcaption>
+            </figcaption> -->
         </figure>
     </div>
 

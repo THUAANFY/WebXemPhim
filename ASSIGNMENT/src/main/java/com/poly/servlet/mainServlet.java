@@ -365,6 +365,46 @@ public class mainServlet extends HttpServlet {
             String fullname = req.getParameter("fullname");
             String email = req.getParameter("email");
             String role = req.getParameter("role");
+            
+         // Kiểm tra dữ liệu nhập vào
+            if (username == null || username.trim().isEmpty() ||
+                password == null || password.trim().isEmpty() ||
+                fullname == null || fullname.trim().isEmpty() ||
+                email == null || email.trim().isEmpty()) {
+
+                // Gửi thông báo lỗi và giữ lại dữ liệu đã nhập
+                req.setAttribute("error", "Vui lòng nhập đầy đủ thông tin!");
+                req.setAttribute("username", username);
+                req.setAttribute("fullname", fullname);
+                req.setAttribute("email", email);
+                req.setAttribute("role", role);
+                req.getRequestDispatcher("/views/html/dangky.jsp").forward(req, resp);
+                return;
+            }
+            
+         // Kiểm tra định dạng email
+            if (!isValidEmail(email)) {
+                // Gửi thông báo lỗi và giữ lại dữ liệu đã nhập
+                req.setAttribute("error", "Email không đúng định dạng!");
+                req.setAttribute("username", username);
+                req.setAttribute("fullname", fullname);
+                req.setAttribute("email", email);
+                req.setAttribute("role", role);
+                req.getRequestDispatcher("/views/html/dangky.jsp").forward(req, resp);
+                return;
+            }
+            
+         // Kiểm tra username đã tồn tại
+            if (userDAO.findById(username) != null) {
+                req.setAttribute("error", "Tên đăng nhập đã tồn tại!");
+                req.setAttribute("username", username);
+                req.setAttribute("fullname", fullname);
+                req.setAttribute("email", email);
+                req.setAttribute("role", role);
+                req.getRequestDispatcher("/views/html/dangky.jsp").forward(req, resp);
+                return;
+            }
+            
 
             // Tạo đối tượng người dùng mới
             Users newUser = new Users();
@@ -385,6 +425,12 @@ public class mainServlet extends HttpServlet {
             // Chuyển hướng hoặc forward đến trang thành công
             resp.sendRedirect(req.getContextPath() + "/dangnhap"); // Hoặc chuyển hướng đến trang đăng nhập
         }
+    }
+ // Phương thức kiểm tra định dạng email
+    private boolean isValidEmail(String email) {
+        // Biểu thức chính quy để kiểm tra định dạng email
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        return email != null && email.matches(emailRegex);
     }
     
     private void handleForgotPassword(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

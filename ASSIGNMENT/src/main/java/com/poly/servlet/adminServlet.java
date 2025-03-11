@@ -214,7 +214,9 @@ public class adminServlet extends HttpServlet {
 	            outputStream.write(buffer, 0, bytesRead);
 	        }
 	    }
+	    System.out.println("Ảnh đã lưu tại: " + filePath);
 	    return "uploads/" + fileName; // Trả về đường dẫn tương đối
+	    
 	}
 	
 	private void handleFavorites(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

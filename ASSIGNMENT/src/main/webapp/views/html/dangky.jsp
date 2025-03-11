@@ -28,29 +28,33 @@
             <button class="btn btn-outline-warning text-dark mb-4 ms-3">Quay lại trang chủ</button>
         </a>
         <form action="dangky" method="post">
+        	<!-- Hiển thị thông báo lỗi nếu có -->
+            <c:if test="${not empty error}">
+                <div class="alert" id="error" style="color: red;">${error}</div>
+            </c:if>
             <div class="row">
                 <div class="col-12 col-md-6">
                     <div class="mb-3">
                         <label for="" class="form-label">Username</label>
-                        <input type="text" class="form-control" name="username" placeholder="Nhập Username"/>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Nhập Username"/>
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="mb-3">
                         <label for="" class="form-label">Password</label>
-                        <input type="password" class="form-control" name="password" placeholder="Nhập Password"/>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Nhập Password"/>
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="mb-3">
                         <label for="" class="form-label">Fullname</label>
-                        <input type="text" class="form-control" name="fullname" placeholder="Nhập Fullname"/>
+                        <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Nhập Fullname"/>
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="mb-3">
                         <label for="" class="form-label">Email</label>
-                        <input type="email" class="form-control" name="email" placeholder="Nhập Email"/>
+                        <input type="text" class="form-control" id="email" name="email" placeholder="Nhập Email"/>
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
@@ -63,7 +67,7 @@
                 </div>
             </div>
             </div>
-                <button class="dangnhap" type="submit">Đăng Ký</button>    
+                <button class="dangnhap" type="submit" id="submit">Đăng Ký</button>    
         </form>
     </div>
     
